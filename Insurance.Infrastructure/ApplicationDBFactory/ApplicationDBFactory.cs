@@ -1,6 +1,7 @@
 ﻿
 using Insurance.Domain.Entity.DbModel;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Insurance.Infrastructure
 {
@@ -209,6 +210,8 @@ namespace Insurance.Infrastructure
                       .HasForeignKey(e => e.PolicyStatusId);
             });
             modelBuilder.Entity<PolicyOP>().HasNoKey().ToFunction("FGetPolicies");
+
+            Data.DataSeeder.Seed(modelBuilder);
 
         }
     }
